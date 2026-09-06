@@ -143,6 +143,13 @@
   .star:hover{transform:scale(1.15);color:var(--gold);background:var(--gold-soft)}
   .star.on{color:var(--gold)}
   .favempty{color:var(--muted);font-size:14px;padding:10px 2px 4px;line-height:1.55}
+  /* Fix: lange Feed-Texte umbrechen, kein horizontales Abschneiden am Laptop */
+  .grid{min-width:0}
+  .card{min-width:0}
+  .card h3,.card .company,.card .info{overflow-wrap:anywhere;word-break:break-word}
+  .card .meta{flex-wrap:wrap}
+  .go a{overflow-wrap:anywhere}
+  html,body{max-width:100%;overflow-x:hidden}
 </style>
 </head>
 <body>
@@ -174,9 +181,9 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><b>187</b><span>Positionen aktuell</span></div>
-  <div class="stat"><b>139</b><span>weltweit machbar</span></div>
-  <div class="stat"><b>5</b><span>Einsteiger-geeignet</span></div>
+  <div class="stat"><b>47</b><span>Positionen aktuell</span></div>
+  <div class="stat"><b>10</b><span>weltweit machbar</span></div>
+  <div class="stat"><b>4</b><span>Einsteiger-geeignet</span></div>
   <div class="stat"><b>35</b><span>auf Deutsch</span></div>
 </div>
 
@@ -387,15 +394,8 @@
 </div>
 </div></section>
 
-<section data-ber="marketing"><h2 style="border-left:4px solid #1e57b0;padding-left:12px">🔵 Marketing & Kreativ <span class="cnt">33 Stellen</span></h2>
+<section data-ber="marketing"><h2 style="border-left:4px solid #1e57b0;padding-left:12px">🔵 Marketing & Kreativ <span class="cnt">6 Stellen</span></h2>
 <div class="grid">
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Machine Learning Engineer – Video AI</h3>
-  <div class="company">Snke</div>
-  <p class="info">What you'll do As (Senior) Machine Learning – Video AI at Snke you will develop and deploy machine learning applications that analyze video and sensor data from the…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/snke/senior-machine-learning-engineer-video-ai-munchen-98891" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="marketing" data-level="erfahren" data-lang="de">
   <h3>(Senior) Social Media &amp; Video Editor (m/w/d)</h3>
   <div class="company">Friendventure</div>
@@ -424,20 +424,6 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/friendventure/senior-account-manager-koln-301020" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Product Designer (B2B SaaS Startup)</h3>
-  <div class="company">Traide Ai</div>
-  <p class="info">Our Mission Join us in reshaping global trade in a fast-growing startup! We are traide AI – a VC-backed, B2B deep tech startup based in Berlin, using AI to solve one of…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/traide-ai/senior-product-designer-b2b-saas-startup-berlin-10991" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Product Designer (m/f/d)</h3>
-  <div class="company">Impower</div>
-  <p class="info">Einleitung At Impower GmbH , we are shaping the future of property management — simple, fast, and digital . More than 100,000 people manage over 12 million apartments…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/impower/senior-product-designer-munchen-161552" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="marketing" data-level="einsteiger" data-lang="de">
   <h3>Trainee Online Marketing Manager (m/w/d)</h3>
   <div class="company">ABH24 GmbH &amp; Co. KG</div>
@@ -452,178 +438,10 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/abh24-gmbh-co-kg/marketing-manager-bielefeld-41960" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Digital Marketing Manager - EMEA &amp; APAC</h3>
-  <div class="company">Illumio</div>
-  <p class="info">Onwards Together! Illumio is the leader in ransomware and breach containment, redefining how organizations contain cyberattacks and enable operational resilience.…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/illumio/remote-digital-marketing-manager-emea-apac-53593" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Product Designer</h3>
-  <div class="company">Everway</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Every mind is unique. Yet much of the world is still built for what’s considered &amp;quot;normal,&amp;quot; leaving too many…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/everway/senior-product-designer-21354" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>VP Commercial &amp; Marketing</h3>
-  <div class="company">Smarkets</div>
-  <p class="info">Who are we? Smarkets: Predicting the Future of Betting Smarkets runs one of the world's most sophisticated prediction markets, handling over £29 billion in volume since…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/smarkets/vp-commercial-marketing-london-447859" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Product Design Manager, Enterprise</h3>
-  <div class="company">scaleai</div>
-  <p class="info">&amp;lt;h1&amp;gt;&amp;lt;strong&amp;gt;About Scale AI&amp;lt;/strong&amp;gt;&amp;lt;/h1&amp;gt; &amp;lt;p&amp;gt;Scale AI accelerates the development and deployment of AI, from the high-quality training data…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/scaleai/senior-product-design-manager-enterprise-london-321038" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Campaigns &amp; Memberships Marketing Manager</h3>
-  <div class="company">Elliptic</div>
-  <p class="info">Campaigns &amp;amp; Memberships Marketing Manager Company description: Elliptic is the leader in digital asset decisioning, we have built the most comprehensive platform for…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/elliptic/campaigns-memberships-marketing-manager-london-united-kingdom-145535" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior International Marketing Manager (10-Month FTC)</h3>
-  <div class="company">sonymusicentertainment</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;span class=&amp;quot;s17&amp;quot;&amp;gt;This is an exciting&amp;lt;span class=&amp;quot;Apple-converted-space&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/sonymusicentertainment/senior-international-marketing-manager-10-month-ftc-london-380214" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Director Marketing, EMEA</h3>
-  <div class="company">Pacvue</div>
-  <p class="info">&amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;em&amp;gt;The ideal candidate will be based in London and should be willing and able to travel across…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/pacvue/director-marketing-emea-259293" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Director of Product Marketing and Market Research</h3>
-  <div class="company">mewssystems</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;h4&amp;gt;&amp;lt;strong&amp;gt;Help make the world more hospitable &amp;lt;/strong&amp;gt;&amp;lt;/h4&amp;gt; &amp;lt;p&amp;gt;The hospitality industry is…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/mewssystems/director-of-product-marketing-and-market-research-326657" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Software quality engineer (UK)</h3>
-  <div class="company">Writer</div>
-  <p class="info">🚀 About WRITER WRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/writer/software-quality-engineer-uk-london-220045" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Security engineer, application security (UK)</h3>
-  <div class="company">Writer</div>
-  <p class="info">🚀 About WRITER WRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/writer/security-engineer-application-security-uk-london-420016" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Security engineer, detection and response (UK)</h3>
-  <div class="company">Writer</div>
-  <p class="info">🚀 About WRITER WRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/writer/security-engineer-detection-and-response-uk-london-268604" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Infrastructure engineer (UK)</h3>
-  <div class="company">Writer</div>
-  <p class="info">🚀 About WRITER WRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/writer/infrastructure-engineer-uk-london-60403" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Growth Marketing Manager (Subscriptions)</h3>
-  <div class="company">Duck Duck Go</div>
-  <p class="info">Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/duck-duck-go/remote-senior-growth-marketing-manager-subscriptions-368722" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Product Design Engineer</h3>
-  <div class="company">Duck Duck Go</div>
-  <p class="info">Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/duck-duck-go/remote-senior-product-design-engineer-145790" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Creative Design Lead (Marketing Campaigns)</h3>
-  <div class="company">Duck Duck Go</div>
-  <p class="info">Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/duck-duck-go/remote-creative-design-lead-marketing-campaigns-86272" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Event Manager</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Ready to be part of the Legal Tech revolution? &amp;nbsp; Vision:&amp;nbsp; As a leading software-as-a-service (SaaS) provider, Dilitrust is a global company dedicated to…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/senior-event-manager-paris-la-defense-63419" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Data Scientist – Practice IA chez MARGO | Projets Marketing &amp; Optimisation</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/data-scientist-practice-ia-chez-margo-projets-marketing-optimisation-paris-361809" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Chef de projet Marketing d'Influence (H/F/X) - France (Paris)</h3>
-  <div class="company">Sunday Natural</div>
-  <p class="info">Votre Rôle Vous participerez au déploiement de la stratégie de marketing d'influence de Sunday Natural. En véritable force de proposition, vous chercherez…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/sunday-natural/chef-de-projet-marketing-dinfluence-france-paris-291112" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior React Full-stack Developer</h3>
-  <div class="company">Lemon.io</div>
-  <p class="info">Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/software-development/senior-react-full-stack-developer-2091101" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior DevOps Engineer</h3>
-  <div class="company">Lemon.io</div>
-  <p class="info">Are you a talented Senior DevOps looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/devops/senior-devops-engineer-2091099" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Content Reviewer - English US</h3>
-  <div class="company">TELUS Digital</div>
-  <p class="info">Our global AI Community is a vibrant network of more than one million contributors from diverse backgrounds who help customers collect, enhance, train, translate, and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/all-others/content-reviewer-english-us-2091105" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Golang Developer</h3>
-  <div class="company">Lemon.io</div>
-  <p class="info">Are you a talented Senior Developer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the marketplace…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/software-development/senior-golang-developer-2091098" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Senior Data Engineer</h3>
-  <div class="company">Lemon.io</div>
-  <p class="info">Are you a talented Senior Data Engineer looking for a remote job that lets you show your skills and get decent compensation? Look no further than Lemon.io — the…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/software-development/senior-data-engineer-2091097" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="marketing" data-level="erfahren" data-lang="en">
-  <h3>Tier III Service Desk Engineer</h3>
-  <div class="company">Unio Digital</div>
-  <p class="info">Unió Digital is an Arizona-based managed service provider (MSP) delivering Managed IT Services, Low Voltage Cabling, Access Control, Video Surveillance, and Intrusion…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/information-technology/tier-iii-service-desk-engineer-2091045" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 </div>
 </div></section>
 
-<section data-ber="vertrieb"><h2 style="border-left:4px solid #b3261e;padding-left:12px">🔴 Vertrieb & Sales <span class="cnt">33 Stellen</span></h2>
+<section data-ber="vertrieb"><h2 style="border-left:4px solid #b3261e;padding-left:12px">🔴 Vertrieb & Sales <span class="cnt">4 Stellen</span></h2>
 <div class="grid">
 <div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="de">
   <h3>Senior Bid &amp; Pursuit Manager / Proposal Manager (m/w/d) – Cloud, Data &amp; AI Consulting</h3>
@@ -632,26 +450,12 @@
   <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/synvert/senior-bid-pursuit-manager-proposal-manager-cloud-data-ai-consulting-hamburg-258249" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Strategic Account Executive - Turkey</h3>
-  <div class="company">gitlab</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;GitLab is the intelligent orchestration platform for DevSecOps. GitLab enables organizations to increase developer…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/gitlab/remote-strategic-account-executive-turkey-389960" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="de">
   <h3>Senior Salesforce Developer (m/f/d) German speaking</h3>
   <div class="company">Peakpeak</div>
   <p class="info">Why we are looking for support We are seeking an experienced Senior Salesforce Developer to join our team in Germany. You’ll be part of a delivery team working across…</p>
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/peakpeak/senior-salesforce-developer-german-speaking-berlin-germany-454637" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Senior Sales Analyst (f/m/d)</h3>
-  <div class="company">autoscout24</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Shape how AutoScout24 measures and grows revenue.&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;At AutoScout24, commercial decisions are increasingly driven…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/autoscout24/senior-sales-analyst-460456" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
 <div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="de">
   <h3>Account Executive (Mid-Market) (Fluent In German) (Position located in Berlin, Germany)</h3>
@@ -660,13 +464,6 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/knowbe4/account-executive-mid-market-fluent-in-german-position-located-in-berlin-germany-194486" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Director Public Sales (d/w/m)</h3>
-  <div class="company">Rulemapping</div>
-  <p class="info">Deine Aufgaben Du führst das Team, das unser Geschäft im öffentlichen Sektor verantwortet, fachlich und disziplinarisch. Gemeinsam mit dem VP Sales DACH schärfst du die…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/rulemapping/director-public-sales-berlin-144411" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="de">
   <h3>(Senior) Business Development &amp; Strategy Manager (m/w/d)</h3>
   <div class="company">Studyflix Gmbh</div>
@@ -674,221 +471,11 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/studyflix-gmbh/senior-business-development-strategy-manager-augsburg-467708" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Principal, Partnership Management – Strategic Partners Europe</h3>
-  <div class="company">Staffbase</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;&amp;lt;strong&amp;gt;About Staffbase&amp;lt;/strong&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;p&amp;gt;We inspire people to achieve great things together.…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/staffbase/principal-partnership-management-strategic-partners-europe-chemnitz-sachsen-dresden-sachsen-109038" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Account executive, enterprise, northern Europe</h3>
-  <div class="company">Watershed</div>
-  <p class="info">About Watershed Watershed is the enterprise sustainability platform. Companies like Airbnb, Carlyle Group, FedEx, Visa, and Dr. Martens use Watershed to manage climate…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/watershed/account-executive-enterprise-northern-europe-london-475191" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Director of Go-to-Market Engineering</h3>
-  <div class="company">Perk</div>
-  <p class="info">About Us Perk (formerly TravelPerk) is the intelligent platform for travel and spend management. Built to tackle the time-consuming, manual work that gets in the way of…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/perk/director-of-go-to-market-engineering-london-457240" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Account Executive, High Growth</h3>
-  <div class="company">Alphasense</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;h2&amp;gt;&amp;lt;strong&amp;gt;About AlphaSense:&amp;amp;nbsp;&amp;lt;/strong&amp;gt;&amp;lt;/h2&amp;gt; &amp;lt;p style=&amp;quot;text-align:…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/alphasense/account-executive-high-growth-london-greater-london-19410" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Sales Development Representative (SDR)</h3>
-  <div class="company">Wordsmith</div>
-  <p class="info">Sales Development Representative Edinburgh Wordsmith Wordsmith is building the legal operations platform for in-house teams, and we are growing fast. We believe in-house…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/wordsmith/sales-development-representative-sdr-edinburgh-307356" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Strategic Account Executive (UKI)</h3>
-  <div class="company">Pingidentity</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About Ping Identity:&amp;amp;nbsp;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;At Ping Identity, we believe in making…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/pingidentity/strategic-account-executive-uki-125029" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Director, Sales (Middle East)</h3>
-  <div class="company">Pingidentity</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About Ping Identity:&amp;amp;nbsp;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;At Ping Identity, we believe in making…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/pingidentity/director-sales-middle-east-304335" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Director, Media Scale Markets</h3>
-  <div class="company">Sharkninjaoperatingllc</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;span data-contrast=&amp;quot;auto&amp;quot;&amp;gt;About Us&amp;lt;/span&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;span…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/sharkninjaoperatingllc/director-media-scale-markets-london-84743" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="einsteiger" data-lang="en">
-  <h3>Business Development Representative</h3>
-  <div class="company">Dualentry</div>
-  <p class="info">About DualEntry DualEntry is building the OS for finance. Every business needs a financial system of record, yet the world's largest fintech market ($220B+) still runs…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag lvl">🌱 Einsteiger</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/dualentry/business-development-representative-london-34530" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Senior Business Development &amp; Partnerships Manager (m/f/x)</h3>
-  <div class="company">Ubitricity Gmbh</div>
-  <p class="info">Your Mission About the role At ubitricity, we are helping local authorities deliver accessible, reliable and scalable public EV charging infrastructure across the UK. We…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/ubitricity-gmbh/senior-business-development-partnerships-manager-london-174771" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Director, Strategic Partnerships</h3>
-  <div class="company">Verve</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Who We Are &amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Verve has created a more efficient and privacy-focused…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/verve/director-strategic-partnerships-london-18351" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Courses and Memberships Sales Associate</h3>
-  <div class="company">Pmmalliance</div>
-  <p class="info">The Company When it comes to digital communities, The Alliance is leading the way. Product marketing, sales enablement, product-led growth, AI, customer success, CMOs,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/pmmalliance/courses-and-memberships-sales-associate-dalston-247170" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Business Development Manager - Bristol</h3>
-  <div class="company">Deliveroo</div>
-  <p class="info">Business Development Manager - Bristol Join us in our mission to transform the way people shop and eat, where impact, innovation, and growth drives everything we do. Our…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/deliveroo/business-development-manager-bristol-250076" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Field Sales Representative - Bristol</h3>
-  <div class="company">Deliveroo</div>
-  <p class="info">Field Sales Representative - Bristol Join us in our mission to transform the way people shop and eat, where impact, innovation, and growth drives everything we do. Our…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/deliveroo/field-sales-representative-bristol-363459" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Partner Solutions Engineer, Southern Europe</h3>
-  <div class="company">Cribl</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Join the company that’s building the telemetry infrastructure for the AI era. At Cribl, we partner with IT and…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/cribl/partner-solutions-engineer-southern-europe-305658" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Enterprise Account Executive - France</h3>
-  <div class="company">Verkada</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;&amp;lt;strong&amp;gt;Who We Are&amp;lt;/strong&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;p&amp;gt;Verkada is transforming how organizations protect their…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/verkada/enterprise-account-executive-france-paris-301288" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Director, Enterprise Sales</h3>
-  <div class="company">Yext</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Yext (NYSE: YEXT) is the enterprise agentic marketing platform. Built on the world&amp;#39;s most comprehensive…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/yext/director-enterprise-sales-paris-82584" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Account Executive - Mid-Market - France</h3>
-  <div class="company">Primer.io</div>
-  <p class="info">An Introduction to Primer Primer is the unified infrastructure for global payments. We give finance and payments teams the visibility and control to reduce complexity,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/primerio/account-executive-mid-market-france-paris-318736" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Senior Solutions Consultant</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Want to join a hyper-growth scale-up? 🚀 &amp;nbsp; For over 20 years, DiliTrust has been digitalizing the legal departments of the world's largest companies. No more…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/senior-solutions-consultant-paris-la-defense-251168" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Account Executive - France</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Prêt(e) à rejoindre la révolution Legal Tech ? Vision: Editeur de logiciels SaaS de premier plan, DiliTrust est une entreprise globale spécialisée dans les solutions…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/account-executive-france-paris-la-defense-470885" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Business Developer Senior - Responsable de compte</h3>
-  <div class="company">MARGO</div>
-  <p class="info">REJOINDRE MARGO &amp;nbsp; MARGO est une société de consulting en Data, IA et Ingénierie logicielle créée en 2005. Présente en France et à l’international, nous réunissons…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/business-developer-senior-responsable-de-compte-paris-137698" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Chief Commercial Officer (CCO)</h3>
-  <div class="company">GENOMINES</div>
-  <p class="info">At Genomines , our mission is to pioneer a new era of sustainable metal production by farming plants that hyperaccumulate metal. Through synthetic biology and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/genomines/chief-commercial-officer-cco-les-ulis-356367" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Enterprise Account Executive (MarTech B2B SaaS) - Paris</h3>
-  <div class="company">Insider One</div>
-  <p class="info">Before jumping into all the information about the role and what you can bring to the table, let us introduce ourselves real quick. About us Insider One is the #1…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/insider-one/enterprise-account-executive-martech-b2b-saas-paris-paris-france-316143" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Enterprise Account Executive - Paris</h3>
-  <div class="company">Insider One</div>
-  <p class="info">Before jumping into all the information about the role and what you can bring to the table, let us introduce ourselves real quick. About us Insider One is the #1…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/insider-one/enterprise-account-executive-paris-paris-france-479438" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Commercial Account Executive, DACH</h3>
-  <div class="company">Algolia</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At Algolia, we’re proud to be a pioneer and market leader in AI Search, empowering 18,000+ businesses to deliver…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/algolia/commercial-account-executive-dach-paris-178815" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="vertrieb" data-level="erfahren" data-lang="en">
-  <h3>Inside Sales Contractor</h3>
-  <div class="company">Credit Wellness, LLC</div>
-  <p class="info">About Us We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 </div>
 </div></section>
 
-<section data-ber="it"><h2 style="border-left:4px solid #33333b;padding-left:12px">⚫ IT & Tech <span class="cnt">96 Stellen</span></h2>
+<section data-ber="it"><h2 style="border-left:4px solid #33333b;padding-left:12px">⚫ IT & Tech <span class="cnt">12 Stellen</span></h2>
 <div class="grid">
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Staff Forward Deployed Engineer</h3>
-  <div class="company">databricks</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;CSQ427R243&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;As a Forward Deployed Engineer (FDE) you will work with customers to build and productionize…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/databricks/staff-forward-deployed-engineer-berlin-munich-227443" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Software Engineer — Software Platform &amp; Middleware (Early Career)</h3>
-  <div class="company">Apex Ai</div>
-  <p class="info">Build the Software Platform Powering Next-Generation Mobility Apex.AI is developing the software foundation for autonomous systems, intelligent machines, and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/apex-ai/software-engineer-software-platform-middleware-early-career-munich-409502" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer — Software Platform &amp; Middleware</h3>
-  <div class="company">Apex Ai</div>
-  <p class="info">Build the Software Platform Powering Next-Generation Mobility Apex.AI is developing the software foundation for autonomous systems, intelligent machines, and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/apex-ai/senior-software-engineer-software-platform-middleware-munich-251904" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Application Engineer</h3>
-  <div class="company">Apex Ai</div>
-  <p class="info">Build the Software Foundation for Next-Generation Mobility &amp;nbsp; At Apex.AI, we develop safety-certified software for mobility systems and intelligent machines. Our…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/apex-ai/senior-application-engineer-munich-404648" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="it" data-level="erfahren" data-lang="de">
   <h3>Technical Project Manager – Software Development (m/w/d)</h3>
   <div class="company">Athereon</div>
@@ -910,13 +497,6 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag lvl">🌱 Einsteiger</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/feld-energy/projektmanager-projektentwickler-pv-green-energy-office-munchen-120931" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Lead / Principal Deployment Engineer</h3>
-  <div class="company">celonis</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Celonis is the trusted platform to industrialize Enterprise AI. At our core is the Celonis Context Model — which…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/celonis/lead-principal-deployment-engineer-munich-436883" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="it" data-level="erfahren" data-lang="de">
   <h3>Senior Software Engineer (m/w/d) | Fullstack für KI-Produkte</h3>
   <div class="company">Avenit Ag</div>
@@ -924,75 +504,12 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/avenit-ag/remote-senior-software-engineer-fullstack-fur-ki-produkte-294858" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Data Analyst (w/m/d)</h3>
-  <div class="company">Pub Tech</div>
-  <p class="info">Unser Team, unsere Arbeitsweise und du Für unser fast 20-köpfiges Analytics &amp;amp; Data Platforms - Department sind wir auf der Suche nach einem/r Data Engineer, der/die…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/pub-tech/data-analyst-munchen-36665" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer (Full-Stack) - Healthcare Applications</h3>
-  <div class="company">Snke</div>
-  <p class="info">What you'll do As (Senior) Software Engineer - Healthcare Applications at Snke you will shape how clinicians interact with patient data every day. You will build and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/snke/senior-software-engineer-full-stack-healthcare-applications-munchen-41995" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Full-Stack Engineer (all genders) | Backend or Frontend Focus</h3>
-  <div class="company">Real Digital</div>
-  <p class="info">Anstellungsdetails Permanent Contract, Full-or Part-Time, Remote or Cologne / Düsseldorf / Darmstadt / Berlin Info Who we areWe are the tech powerhouse behind Kaufland’s…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/real-digital/remote-senior-full-stack-engineer-all-genders-backend-or-frontend-focus-485295" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior DevOps Engineer (all genders) | Data Platform</h3>
-  <div class="company">Real Digital</div>
-  <p class="info">Anstellungsdetails Permanent Contract, Full- or Part-Time, Remote or Cologne / Düsseldorf / Darmstadt / Berlin Info Who we areWe are the tech powerhouse behind…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/real-digital/remote-senior-devops-engineer-all-genders-data-platform-426742" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>(Senior) Business Automation Developer (all genders) I International</h3>
-  <div class="company">Real Digital</div>
-  <p class="info">Anstellungsdetails Permanent Contract, Full- or Part-Time, Remote or Cologne / Düsseldorf / Darmstadt / Berlin Info Who we are We are the tech powerhouse behind…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/real-digital/remote-senior-business-automation-developer-all-genders-i-international-107411" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Infrastructure Engineer - Deployments (d/f/m)</h3>
-  <div class="company">Arculus</div>
-  <p class="info">Responsibilities As an Infrastructure Engineer , you will be responsible for the reliable delivery and deployment of our software systems to customer environments. You…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/arculus/infrastructure-engineer-deployments-munich-109466" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="it" data-level="erfahren" data-lang="de">
   <h3>Senior AI-Native Fullstack Engineer (m/w/d)</h3>
   <div class="company">Zvoove</div>
   <p class="info">Job description We are building modern, customer-facing software for the temp-staffing industry, integrating capabilities from multiple ERP systems and countries into…</p>
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/zvoove/senior-ai-native-fullstack-engineer-de-munchen-265224" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Data Scientist (m/f/d)</h3>
-  <div class="company">autoscout24</div>
-  <p class="info">&amp;lt;div class=&amp;quot;qMYqUG_convSearchResultHighlightRoot&amp;quot;&amp;gt; &amp;lt;div class=&amp;quot;&amp;quot;…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/autoscout24/senior-data-scientist-25583" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Engineering Manager (m/f/d)</h3>
-  <div class="company">autoscout24</div>
-  <p class="info">&amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;A career driven by you&amp;lt;/strong&amp;gt;. Join AutoScout24 Group and experience life in the fast lane. We&amp;#39;re not just…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/autoscout24/engineering-manager-320831" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Data Engineer</h3>
-  <div class="company">Nebius</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About Nebius:&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Nebius is leading a new era in cloud infrastructure for…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/nebius/data-engineer-393721" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
 <div class="card" data-bereich="it" data-level="erfahren" data-lang="de">
   <h3>Data Analyst:in Fundraising (m/w/d)</h3>
@@ -1007,13 +524,6 @@
   <p class="info">Hinweis: Das Kölner Institut für Managementberatung (KI.M) ist Teil von Acture Germany. Seit vielen Jahren begleiten wir Unternehmen bei Themen rund um…</p>
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/acture-germany/managing-director-koln-436630" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Engineering Manager Embedded</h3>
-  <div class="company">Qwello.eu</div>
-  <p class="info">Our mission at Qwello is to revolutionize the charging industry, we are committed to turn the world from combustion to electric. We put the customer first. We know their…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/qwelloeu/engineering-manager-embedded-munich-bavaria-427696" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
 <div class="card" data-bereich="it" data-level="erfahren" data-lang="de">
   <h3>Senior Engineer - Proxmox (m/w/d) - Remote</h3>
@@ -1036,20 +546,6 @@
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag">📈 Mit Erfahrung</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/grunes-leihhauser-gmbh-co-kg/azure-infrastructure-engineer-in-koln-buro-koln-463655" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer - Transaction Processing (Java, AWS, DynamoDB)</h3>
-  <div class="company">Ppro</div>
-  <p class="info">At PPRO, we simplify access to local payments - providing a local payments platform that empowers giants like PayPal, Stripe, and Microsoft to connect with billions of…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/ppro/senior-software-engineer-transaction-processing-java-aws-dynamodb-berlin-202235" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Sr. Backend Engineer</h3>
-  <div class="company">Andercore</div>
-  <p class="info">About Andercore Andercore is the AI-native supplier of industrial materials for energy, infrastructure, and construction in wholesale and beyond. We trade with global…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/andercore/sr-backend-engineer-berlin-26161" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
 <div class="card" data-bereich="it" data-level="erfahren" data-lang="de">
   <h3>Senior Fullstack Developer (a)</h3>
   <div class="company">Eticor GmbH</div>
@@ -1063,475 +559,6 @@
   <p class="info">PolyTALENT besetzt diese aktualisierte Position für einen wachstumsstarken Industriepartner in Hamburg . Gesucht wird ein erfahrener CAM-Programmierer /…</p>
   <div class="meta"><span class="tag de">🇩🇪 DE</span><span class="tag lvl">🌱 Einsteiger</span><span class="tag delang">Deutsch</span><span class="tag date">📅 06.09.2026</span></div>
   <div class="go"><a href="https://www.arbeitnow.com/jobs/companies/polytalent-gmbh/cam-cnc-programmierer-5-achs-frasen-hamburg-1410" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Frontend Engineer - London</h3>
-  <div class="company">Perk</div>
-  <p class="info">About Us Perk (formerly TravelPerk) is the intelligent platform for travel and spend management. Built to tackle the time-consuming, manual work that gets in the way of…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/perk/senior-frontend-engineer-london-423081" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer (Go)</h3>
-  <div class="company">Form3</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;span data-contrast=&amp;quot;auto&amp;quot;&amp;gt;THE ROLE&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;span…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/form3/senior-software-engineer-go-402117" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Product Manager – AI Product Engineering</h3>
-  <div class="company">Guidepoint</div>
-  <p class="info">&amp;lt;p style=&amp;quot;line-height: 1.4;&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;font-size: 12pt;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;Overview:&amp;lt;/strong&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/guidepoint/product-manager-ai-product-engineering-london-227150" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>AxiomSL Implementation Consultant</h3>
-  <div class="company">Excelgens Consulting Sverige Ab</div>
-  <p class="info">We are looking for an experienced AxiomSL Implementation Consultant to support the implementation of an AxiomSL ControllerView custom solution on RegCloud . The…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/excelgens-consulting-sverige-ab/axiomsl-implementation-consultant-london-425025" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Systems Engineer</h3>
-  <div class="company">Graphcore</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About the job&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Own the reliability of AI compute hardware where lab discovery becomes data centre…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/graphcore/senior-systems-engineer-bristol-461847" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer</h3>
-  <div class="company">Graphcore</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About the job&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Own the quality gate for the drivers that power Graphcore’s next-generation AI systems.&amp;lt;/p&amp;gt;…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/graphcore/senior-software-engineer-cambridge-296220" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Sr. Software Engineer, Investor Solutions</h3>
-  <div class="company">Addepar1</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;span style=&amp;quot;text-decoration: underline;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;Who We…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/addepar1/sr-software-engineer-investor-solutions-edinburgh-383916" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Sr. Software Engineer - AI/ML - AI Platform</h3>
-  <div class="company">Addepar1</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;span style=&amp;quot;text-decoration: underline;&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;Who We…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/addepar1/sr-software-engineer-ai-ml-ai-platform-london-276160" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Value Engineer</h3>
-  <div class="company">Legora</div>
-  <p class="info">About Us Legora is redefining how legal work gets done. Not built for lawyers, built with them. We work alongside the world’s best legal teams, who expect excellence,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/legora/value-engineer-london-3330" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer, Full Stack</h3>
-  <div class="company">Roku</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;h2 style=&amp;quot;font-family: GothamBold,Helvetica,Arial,sans-serif; color: #662d91;&amp;quot;&amp;gt;Teamwork makes the stream…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/roku/senior-software-engineer-full-stack-cambridge-169608" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Principal Radio Frequency Engineer</h3>
-  <div class="company">84674Th44Metrea9999</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;h3 id=&amp;quot;isPasted&amp;quot;&amp;gt;&amp;lt;strong&amp;gt;Company Overview&amp;lt;/strong&amp;gt;&amp;lt;/h3&amp;gt; &amp;lt;p&amp;gt;Metrea delivers…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/84674th44metrea9999/principal-radio-frequency-engineer-lincoln-london-52976" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Cloud Engineer</h3>
-  <div class="company">Sharkninjaoperatingllc</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;span data-contrast=&amp;quot;auto&amp;quot;&amp;gt;About Us&amp;lt;/span&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;span…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/sharkninjaoperatingllc/senior-cloud-engineer-battersea-power-station-98014" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior DevSecOps Engineer</h3>
-  <div class="company">Smarkets</div>
-  <p class="info">Who are we? Smarkets: Predicting the Future of Betting Smarkets is a prediction market exchange for sports and political trading, having handled over $50 billion in…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/smarkets/senior-devsecops-engineer-london-157964" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior/Tech Lead Backend Engineer (Managed Kubernetes)</h3>
-  <div class="company">Nebius</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About Nebius:&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Nebius is leading a new era in cloud infrastructure for…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/nebius/senior-tech-lead-backend-engineer-managed-kubernetes-388791" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer (Stream Processing)</h3>
-  <div class="company">Nebius</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About Nebius:&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Nebius is leading a new era in cloud infrastructure for…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/nebius/senior-software-engineer-stream-processing-28133" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Data Engineer</h3>
-  <div class="company">Nebius</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;About Nebius:&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;Nebius is leading a new era in cloud infrastructure for…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/nebius/data-engineer-472202" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Agent Engineer</h3>
-  <div class="company">Elliptic</div>
-  <p class="info">Elliptic is building AI-powered tools that enable the business to scale faster and with greater confidence. Our operations team is at the centre of that work — designing…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/elliptic/agent-engineer-london-united-kingdom-352641" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Site Reliability Engineer</h3>
-  <div class="company">Voleon</div>
-  <p class="info">Voleon is a technology company that applies state-of-the-art AI and machine learning techniques to real-world problems in finance. For nearly two decades, we have led…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/voleon/site-reliability-engineer-london-259308" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Machine Learning Engineer</h3>
-  <div class="company">Voleon</div>
-  <p class="info">Voleon is a technology company that applies state-of-the-art AI and machine learning techniques to real-world problems in finance. For nearly two decades, we have led…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/voleon/senior-machine-learning-engineer-london-177034" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Software Architect</h3>
-  <div class="company">nice</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At NiCE, we don’t limit our challenges. We challenge our limits. Always. We’re ambitious. We’re game changers. And we…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/nice/software-architect-377105" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Architect</h3>
-  <div class="company">nice</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At NiCE, we don’t limit our challenges. We challenge our limits. Always. We’re ambitious. We’re game changers. And we…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/nice/senior-software-architect-356646" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Partner Deployed Engineer</h3>
-  <div class="company">Coder</div>
-  <p class="info">The Role We are looking for a Senior Partner Deployed Engineer to join the Customer Solutions team, focused on building Coder’s partner ecosystem across EMEA. This is a…</p>
-  <div class="meta"><span class="tag eu">🇪🇺 EU</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/coder/senior-partner-deployed-engineer-united-kingdom-14900" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Security Engineer - Identity and Access Management (IAM)</h3>
-  <div class="company">Allica Bank</div>
-  <p class="info">About Allica Bank Allica is the UK’s fastest growing company - and the fastest-growing financial technology (Fintech) firm ever. Our purpose is to help established SMEs,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/allica-bank/security-engineer-identity-and-access-management-iam-milton-keynes-156931" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Technical Support Engineer</h3>
-  <div class="company">Plaid</div>
-  <p class="info">We believe that the way people interact with their finances will drastically improve in the next few years. We’re dedicated to empowering this transformation by building…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.co.uk/jobs/companies/plaid/remote-technical-support-engineer-241358" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer I</h3>
-  <div class="company">Kaluza</div>
-  <p class="info">&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Job Title: &amp;lt;/strong&amp;gt;Senior Engineer I&amp;lt;/p&amp;gt; &amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Location:&amp;lt;/strong&amp;gt; Paris (Hybrid)&amp;lt;/p&amp;gt;…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/kaluza/senior-software-engineer-i-paris-paris-341689" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Energy Markets - France (CDD)</h3>
-  <div class="company">Axle Careers</div>
-  <p class="info">About Us At Axle Energy, we’re building the infrastructure that will underpin the decarbonised energy system. Our software moves energy usage to times when electricity…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/axle-careers/energy-markets-france-cdd-paris-120734" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Staff Data Scientist</h3>
-  <div class="company">Duck Duck Go</div>
-  <p class="info">Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/duck-duck-go/remote-staff-data-scientist-28394" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Privacy Engineering Director</h3>
-  <div class="company">Duck Duck Go</div>
-  <p class="info">Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/duck-duck-go/remote-privacy-engineering-director-460386" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Privacy Engineer</h3>
-  <div class="company">Duck Duck Go</div>
-  <p class="info">Who We Are Hi, we're DuckDuckGo, the online protection company and remote-first team of 300+ on a mission to raise the standard of trust online. Founded in 2008 and…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/duck-duck-go/remote-senior-privacy-engineer-65238" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Research Scientist/Engineer (Agentic Systems)</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: We're looking for a research scientist to build autonomous, large-scale environments that push LLM agents (single and multi-agent) to failure, and study how they…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/research-scientist-engineer-agentic-systems-paris-217452" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Research Engineer (Evals)</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: We're looking for a research engineer to build and maintain our internal suite of benchmarks, covering single/multi-turn content and agentic guardrails. The…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/research-engineer-evals-paris-388716" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>DevOps Engineer</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: We’re looking for a DevOps Engineer to build and maintain the cloud and on-prem infrastructure behind our platform: Kubernetes clusters, CI/CD pipelines,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/devops-engineer-paris-46248" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Product Engineer (Backend)</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: We're looking for a Product Engineer (Backend – Rust) to own and evolve the core systems that power AI safety at scale – building APIs that handle hundreds of…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/product-engineer-backend-paris-126655" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Multimodal ML Engineer</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: Multimodal ML Engineer to train and ship vision, audio, video, and speech models for an AI safety platform that operates at 100M+ API calls/month. About us White…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/multimodal-ml-engineer-paris-374661" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>ML Research Engineer</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: We are looking for several ML Engineers to train, post-train, and evaluate the LLMs at the core of our platform. This is hands-on modern model training work:…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/ml-research-engineer-paris-21219" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>ML Infrastructure Engineer</h3>
-  <div class="company">Whitecircle</div>
-  <p class="info">TLDR: We are looking for an ML Infrastructure Engineer to build the systems behind our LLM post-training, RL, evaluation, inference, and agentic development workflows.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/whitecircle/ml-infrastructure-engineer-paris-407148" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Software Development Engineers in Test (Python)</h3>
-  <div class="company">Xm</div>
-  <p class="info">The Role: Our team is expanding and we are hiring several high caliber SDET (Software Development Engineer in Test) - Python to join our fast-growing team. You will work…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/xm/remote-software-development-engineers-in-test-python-226133" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Site Reliability Engineers (SRE)</h3>
-  <div class="company">Xm</div>
-  <p class="info">The Role:&amp;nbsp; You will join a team working with Observability, Escalations, Post-mortems, Correction of Errors, and other practices that will contribute to the…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/xm/remote-site-reliability-engineers-sre-314013" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>QA Software Test Automation Engineers (Java)</h3>
-  <div class="company">Xm</div>
-  <p class="info">The Role: Our team is expanding and we are hiring several high caliber QA Software Test Automation Engineers (Java) to join our fast-growing team. You will work with…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/xm/remote-qa-software-test-automation-engineers-java-233007" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Integration Engineer - Warehouse Automation</h3>
-  <div class="company">Exotec</div>
-  <p class="info">À propos d’Exotec&amp;nbsp; Chez Exotec, nous concevons et déployons des solutions robotiques d’automatisation d’entrepôt qui aident les plus grandes marques à améliorer…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/exotec/senior-software-integration-engineer-warehouse-automation-lille-241230" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Network R&amp;D Engineer</h3>
-  <div class="company">Exotec</div>
-  <p class="info">Chez&amp;nbsp;Exotec, nous mettons l’excellence technologique au service de la redéfinition des relations entre humains et robots. A travers le monde, nos solutions…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/exotec/senior-network-rd-engineer-wasquehal-448311" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Software Engineer - AI Platform (Frontend)</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Ready to be part of the Legal Tech revolution? &amp;nbsp; Vision: &amp;nbsp; As a leading software-as-a-service (SaaS) provider,&amp;nbsp;DiliTrust&amp;nbsp;is a global company…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/software-engineer-ai-platform-frontend-paris-la-defense-30686" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior FullStack Software Engineer (Node.js / Vue.js) - Full remote</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Ready to be part of the Legal Tech revolution? &amp;nbsp; Vision:&amp;nbsp; As a leading software-as-a-service (SaaS) provider, Dilitrust is a global company dedicated to…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/senior-fullstack-software-engineer-nodejs-vuejs-full-remote-paris-la-defense-151911" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Lead Mobile Engineer - React Native</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Ready to be part of the Legal Tech revolution? &amp;nbsp; As the leading SaaS publisher in Europe, DiliTrust is transforming legal departments worldwide with cutting-edge…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/lead-mobile-engineer-react-native-paris-la-defense-182907" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>FullStack Software Engineer (Node.js / Vue.js)</h3>
-  <div class="company">DiliTrust</div>
-  <p class="info">Ready to be part of the Legal Tech revolution? Vision:&amp;nbsp; As a leading software-as-a-service (SaaS) provider, Dilitrust is a global company dedicated to offering an…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/dilitrust/fullstack-software-engineer-nodejs-vuejs-paris-la-defense-252333" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Tech Lead Java Senior - Practice SE MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">&amp;nbsp; Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/tech-lead-java-senior-practice-se-margo-paris-479328" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Software Engineer Full Stack (.NET / React) – Projet From Scratch – | Practice SE MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/software-engineer-full-stack-net-react-projet-from-scratch-practice-se-margo-paris-479819" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Data Engineer - Cloud Transfo</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel. C’est pourquoi…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/senior-data-engineer-cloud-transfo-paris-306880" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Practice Manager  – Software Engineering - H/F</h3>
-  <div class="company">MARGO</div>
-  <p class="info">REJOINDRE MARGO MARGO est une société de conseil&amp;nbsp;spécialisée dans la Data, l'Intelligence Artificielle et l'Ingénierie Logicielle. Réunissant les meilleurs experts,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/practice-manager-software-engineering-h-f-paris-343272" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Machine Learning Engineer – Practice IA MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/machine-learning-engineer-practice-ia-margo-paris-220341" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Lead Data Scientist – IA &amp; GenAI | Practice IA MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/lead-data-scientist-ia-genai-practice-ia-margo-paris-364916" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>DevOps - H/F</h3>
-  <div class="company">MARGO</div>
-  <p class="info">À PROPOS DE MARGO MARGO est une société de conseil spécialisée dans la Data, l'Intelligence Artificielle et l'Ingénierie Logicielle. Réunissant les meilleurs experts,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/devops-h-f-paris-258767" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Développeur Senior Python |  Practice SE MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? &amp;nbsp; Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/developpeur-senior-python-practice-se-margo-paris-409961" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Développeur Full Stack |  Practice SE MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/developpeur-full-stack-practice-se-margo-paris-322707" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Développeur Full Stack - Java/React |  Practice SE MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? &amp;nbsp; Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/developpeur-full-stack-java-react-practice-se-margo-paris-334636" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Data Scientist | Projets Pricing &amp; Segmentation – Practice IA MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/data-scientist-projets-pricing-segmentation-practice-ia-margo-paris-307603" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Data Scientist | Machine Learning Engineer – Practice IA MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? &amp;nbsp; Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/data-scientist-machine-learning-engineer-practice-ia-margo-paris-295553" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Data Engineer - Practice Cloud Transformation chez MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">QUI SOMMES NOUS? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/data-engineer-practice-cloud-transformation-chez-margo-paris-297411" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Architecte technique Java - Marchés financiers – systèmes critiques |  Practice SE MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/architecte-technique-java-marches-financiers-systemes-critiques-practice-se-margo-paris-117226" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>AI Engineer (GenAI &amp; LLM) – Practice IA MARGO</h3>
-  <div class="company">MARGO</div>
-  <p class="info">Qui sommes nous ? Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact business réel.…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/ai-engineer-genai-llm-practice-ia-margo-paris-107715" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>AI Engineer - Spécialiste AI4Code &amp; Agents IA (H/F)</h3>
-  <div class="company">MARGO</div>
-  <p class="info">&amp;nbsp; Qui sommes nous ? &amp;nbsp; Chez MARGO, nos consultants travaillent sur ce qui compte vraiment : des projets complexes qui allient challenge intellectuel et impact…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/margo/ai-engineer-specialiste-ai4code-agents-ia-h-f-paris-135806" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Solutions Engineer - Italian Speaking</h3>
-  <div class="company">Algolia</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At Algolia, we’re proud to be a pioneer and market leader in AI Search, empowering 18,000+ businesses to deliver…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/algolia/solutions-engineer-italian-speaking-paris-165143" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer, Understanding</h3>
-  <div class="company">Algolia</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At Algolia, we’re proud to be a pioneer and market leader in AI Search, empowering 18,000+ businesses to deliver…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/algolia/senior-software-engineer-understanding-paris-371651" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer - Search Platform</h3>
-  <div class="company">Algolia</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At Algolia, we’re proud to be a pioneer and market leader in AI Search, empowering 18,000+ businesses to deliver…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/algolia/senior-software-engineer-search-platform-paris-357820" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Senior Software Engineer - Search Infrastructure</h3>
-  <div class="company">Algolia</div>
-  <p class="info">&amp;lt;div class=&amp;quot;content-intro&amp;quot;&amp;gt;&amp;lt;p&amp;gt;At Algolia, we’re proud to be a pioneer and market leader in AI Search, empowering 18,000+ businesses to deliver…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/algolia/senior-software-engineer-search-infrastructure-paris-489831" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Forward Deployed Engineer</h3>
-  <div class="company">Lumaai</div>
-  <p class="info">Forward Deployed Engineers turn what Luma's models can do into systems customers actually rely on. You embed with a customer, learn their workflow, define the problem…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://www.arbeitnow.fr/jobs/companies/lumaai/forward-deployed-engineer-paris-170431" target="_blank" rel="noopener">Zur Stelle →</a></div>
-</div>
-<div class="card" data-bereich="it" data-level="erfahren" data-lang="en">
-  <h3>Tech Lead Full-Stack Rails Engineer</h3>
-  <div class="company">Mitre Media</div>
-  <p class="info">About Mitre Media Mitre Media is redefining FinTech with AI-driven tools that empower millions of investors. Our portfolio, including Dividend.com and MutualFunds.com,…</p>
-  <div class="meta"><span class="tag world">🌍 Weltweit</span><span class="tag">📈 Mit Erfahrung</span><span class="tag">Englisch</span><span class="tag date">📅 06.09.2026</span></div>
-  <div class="go"><a href="https://remotive.com/remote-jobs/software-development/tech-lead-full-stack-rails-engineer-2069746" target="_blank" rel="noopener">Zur Stelle →</a></div>
 </div>
 </div>
 </div></section>
