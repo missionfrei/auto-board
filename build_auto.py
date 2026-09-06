@@ -46,8 +46,9 @@ BEREICH_KW = {
 BEREICH_ORDER = [b[0] for b in BEREICHE]
 
 DE_MARKERS = ["deutsch","german","(m/w/d)","m/w/d","mwd","stelle","mitarbeiter","kundenbetreu","buchhalt","vertrieb","home office","homeoffice"]
-WORLD_MARKERS = ["worldwide","anywhere","weltweit","global","work from anywhere","location independent","location-independent","anywhere in the world","remote worldwide","international remote","fully remote worldwide"]
-EU_MARKERS = ["europe","eu ","emea","cet","european"]
+WORLD_MARKERS = ["worldwide","anywhere","weltweit","global","work from anywhere","location independent","location-independent","anywhere in the world","remote worldwide","international remote","fully remote worldwide",
+    "ortsunabhängig","ortsunabhaengig","von überall","von ueberall","standortunabhängig","standortunabhaengig","überall arbeiten","ueberall arbeiten","remote weltweit","weltweit remote","von zuhause aus überall"]
+EU_MARKERS = ["europe","eu ","emea","cet","european","europaweit","eu-weit","euweit","innerhalb europas","remote in europa","eu remote","europe remote","remote europe","remote (europe)","eu-remote"]
 EINSTEIGER_MARKERS = ["junior","entry","einsteiger","quereinstieg","quereinsteiger","no experience","keine erfahrung","berufseinsteiger","trainee","aushilfe","praktik"]
 BLOCK = ["werkstud","working student"]   # Paul: keine Werkstudenten
 
@@ -69,7 +70,7 @@ def detect_bereich(text):
 
 def detect(job):
     """Ergaenzt lang/region/level anhand des Textes."""
-    t = (job["title"] + " " + job.get("raw_loc","") + " " + job.get("raw_tags","") + " " + job.get("info","")).lower()
+    t = (job["title"] + " " + job.get("raw_loc","") + " " + job.get("raw_tags","") + " " + job.get("info","") + " " + job.get("raw_desc","")).lower()
     lang = "de" if any(m in t for m in DE_MARKERS) else "en"
     if any(m in t for m in WORLD_MARKERS): region = "world"
     elif any(m in t for m in EU_MARKERS):  region = "eu"
@@ -86,10 +87,12 @@ def http_json(url):
 def from_arbeitnow(raw):
     out=[]
     for j in raw.get("data", []):
+        if not j.get("remote"): continue   # arbeitnow ist gemischt - nur Remote-Jobs aufnehmen
         out.append(dict(title=j.get("title",""), company=j.get("company_name",""),
             url=j.get("url",""), info=clean_text(j.get("description","")),
             raw_tags=" ".join(j.get("tags",[]) or [])+" "+" ".join(j.get("job_types",[]) or []),
-            raw_loc=j.get("location","") + (" remote" if j.get("remote") else "")))
+            raw_desc=clean_text(j.get("description",""), 1000),
+            raw_loc=j.get("location","") + " remote"))
     return out
 
 def from_remotive(raw):
@@ -166,7 +169,11 @@ def from_wwr(xmltext):
 # (name, url, normalizer, kind) - kind "json"|"text"
 SOURCES = [
     # --- Deutschsprachig-orientiert (fuer die >=50%-Deutsch-Quote) ---
-    ("arbeitnow",     "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow, "json"),
+    ("arbeitnow",     "https://www.arbeitnow.com/api/job-board-api",         from_arbeitnow, "json"),
+    ("arbeitnow-2",   "https://www.arbeitnow.com/api/job-board-api?page=2",  from_arbeitnow, "json"),
+    ("arbeitnow-3",   "https://www.arbeitnow.com/api/job-board-api?page=3",  from_arbeitnow, "json"),
+    ("arbeitnow-4",   "https://www.arbeitnow.com/api/job-board-api?page=4",  from_arbeitnow, "json"),
+    ("arbeitnow-5",   "https://www.arbeitnow.com/api/job-board-api?page=5",  from_arbeitnow, "json"),
     ("remotive-de",   "https://remotive.com/api/remote-jobs?search=german",  from_remotive, "json"),
     ("remotive-de2",  "https://remotive.com/api/remote-jobs?search=deutsch", from_remotive, "json"),
     ("jobicy-de",     "https://jobicy.com/api/v2/remote-jobs?count=100&tag=german", from_jobicy, "json"),
@@ -194,6 +201,7 @@ SOURCES = [
     ("wwr-mgmtfin",   "https://weworkremotely.com/categories/remote-management-and-finance-jobs.rss", from_wwr, "text"),
     ("wwr-product",   "https://weworkremotely.com/categories/remote-product-jobs.rss",  from_wwr, "text"),
     ("wwr-allother",  "https://weworkremotely.com/categories/all-other-remote-jobs.rss", from_wwr, "text"),
+    ("wwr-design",    "https://weworkremotely.com/categories/remote-design-jobs.rss",     from_wwr, "text"),
 ]
 
 def gather():
