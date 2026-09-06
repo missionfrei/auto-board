@@ -131,6 +131,55 @@ def http_text(url):
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.read().decode("utf-8","replace")
 
+# ---------- Link-Check (laeuft auf GitHub mit offenem Netz) ----------
+UA_LC={"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125 Safari/537.36"}
+def link_alive(url):
+    """False NUR wenn der Link eindeutig tot ist (404/410). Alles andere (403/405/Timeout/DNS) -> behalten
+    (Paul-Regel: nur sicher-tote Links entfernen)."""
+    for method in ("HEAD","GET"):
+        try:
+            req=urllib.request.Request(url, method=method, headers=UA_LC)
+            with urllib.request.urlopen(req, timeout=12) as r:
+                return True
+        except urllib.error.HTTPError as e:
+            if e.code in (404,410): return False
+            if method=="HEAD" and e.code in (403,405,501): continue  # HEAD verboten -> GET testen
+            return True
+        except Exception:
+            return True   # Timeout/DNS/Verbindung -> im Zweifel behalten
+    return True
+
+def prune_dead(jobs, workers=24):
+    if MOCK or not jobs: return jobs, 0
+    import concurrent.futures as cf
+    alive=[True]*len(jobs)
+    with cf.ThreadPoolExecutor(max_workers=workers) as ex:
+        futs={ex.submit(link_alive, j["url"]): i for i,j in enumerate(jobs)}
+        for f in cf.as_completed(futs):
+            i=futs[f]
+            try: alive[i]=f.result()
+            except Exception: alive[i]=True
+    kept=[j for j,a in zip(jobs,alive) if a]
+    return kept, len(jobs)-len(kept)
+
+def from_rss_generic(xmltext):
+    """RSS ohne 'Firma: Titel'-Konvention (euremotejobs, nodesk, realworkfromanywhere)."""
+    import xml.etree.ElementTree as ET
+    out=[]
+    try: root=ET.fromstring(xmltext)
+    except Exception: return out
+    for item in root.iter("item"):
+        title=(item.findtext("title") or "").strip()
+        if not title: continue
+        link=(item.findtext("link") or "").strip()
+        desc=item.findtext("description") or ""
+        comp=""
+        for ch in item:
+            if ch.tag.endswith("creator") and ch.text: comp=ch.text.strip(); break
+        out.append(dict(title=title, company=comp, url=link, info=clean_text(desc),
+            raw_tags=(item.findtext("category") or ""), raw_desc=clean_text(desc,1000), raw_loc=""))
+    return out
+
 def from_himalayas(raw):
     out=[]
     for j in raw.get("jobs", []):
@@ -202,6 +251,10 @@ SOURCES = [
     ("wwr-product",   "https://weworkremotely.com/categories/remote-product-jobs.rss",  from_wwr, "text"),
     ("wwr-allother",  "https://weworkremotely.com/categories/all-other-remote-jobs.rss", from_wwr, "text"),
     ("wwr-design",    "https://weworkremotely.com/categories/remote-design-jobs.rss",     from_wwr, "text"),
+    # --- Neue Quellen (aus dem Hauptboard uebernommen, fuer die Zukunft) ---
+    ("realworkfromanywhere","https://www.realworkfromanywhere.com/feed", from_rss_generic, "text"),
+    ("euremotejobs",  "https://euremotejobs.com/feed/",                  from_rss_generic, "text"),
+    ("nodesk",        "https://nodesk.co/remote-jobs/feed/",             from_rss_generic, "text"),
 ]
 
 def gather():
@@ -246,7 +299,7 @@ def process(raw_jobs):
         seen.add(u)
         result.append(dict(title=j["title"], company=j.get("company",""),
             url=j["url"], info=j.get("info","") or "Remote-Stelle - Details ueber den Link.",
-            lang=lang, region=region, level=level, bereich=ber, date=TODAY, fd=False))
+            lang=lang, region=region, level=level, bereich=ber, date=TODAY, fd=False, src="auto"))
     return result
 
 def load_manual():
@@ -255,10 +308,11 @@ def load_manual():
     except Exception as e: print("manual-jobs.json Fehler:",e); return []
     out=[]
     for j in data:
+        fd=bool(j.get("fd", True))
         out.append(dict(title=j["title"], company=j.get("company",""), url=j["url"],
             info=j.get("info",""), lang=j.get("lang","de"), region=j.get("region","de"),
             level=j.get("level","einsteiger"), bereich=j.get("bereich","service"),
-            date=j.get("date",TODAY), fd=bool(j.get("fd", True))))
+            date=j.get("date",TODAY), fd=fd, src=j.get("src") or ("customer" if fd else "import")))
     return out
 
 # ---------- Render ----------
@@ -281,10 +335,11 @@ CAP={"service":300,"buero":150,"start":120,"sprache":100,"marketing":40,"vertrie
 def build_sections(jobs):
     by={b:[] for b in BEREICH_ORDER}
     for j in jobs: by[j["bereich"]].append(j)
-    for b in by:  # manuelle (fd) immer behalten + zuerst, Rest gedeckelt
-        by[b].sort(key=lambda x:(not x["fd"], x["date"]), reverse=False)
-        fd=[j for j in by[b] if j["fd"]]; rest=[j for j in by[b] if not j["fd"]]
-        by[b]=fd+rest[:max(0, CAP.get(b,40)-len(fd))]
+    for b in by:  # Kunden + Importe immer behalten, nur Auto (Feed) deckeln
+        keep=[j for j in by[b] if j.get("src")!="auto"]
+        keep.sort(key=lambda x:(not x["fd"],))     # Kunden-Picks (Stern) zuerst
+        au=[j for j in by[b] if j.get("src")=="auto"]
+        by[b]=keep + au[:max(0, CAP.get(b,60)-len(keep))]
     html=[]
     for ber,color,label in BEREICHE:
         cards=by[ber]
@@ -302,18 +357,24 @@ def main():
 
     auto=process(gather())
     manual=load_manual()
+    # Tote Links in der manuellen/Import-Schicht raus (laeuft auf GitHub mit offenem Netz)
+    manual, dead = prune_dead(manual)
+    print(f"[linkcheck] manuelle Schicht: {dead} tote Links entfernt -> {len(manual)} bleiben")
+
     man_urls={m["url"].rstrip("/") for m in manual}
     auto=[a for a in auto if a["url"].rstrip("/") not in man_urls]  # manuell gewinnt
 
-    # --- Paul-Vorgabe: mindestens die Haelfte deutschsprachig ---
-    # Englische Auto-Stellen werden so gedeckelt, dass insgesamt Deutsch >= Englisch bleibt.
-    m_de=sum(1 for m in manual if m["lang"]=="de"); m_en=len(manual)-m_de
-    a_de=[a for a in auto if a["lang"]=="de"]; a_en=[a for a in auto if a["lang"]!="de"]
-    max_en=max(0, (m_de+len(a_de)) - m_en)
-    a_en=sorted(a_en, key=lambda x:x["date"], reverse=True)[:max_en]
-    auto=a_de+a_en
-
-    alljobs=manual+auto
+    # --- Paul-Vorgabe: mindestens die Haelfte deutschsprachig (ueber das GANZE Board) ---
+    # Kunden-Picks immer behalten; Englisch nur so weit, dass insgesamt Deutsch >= Englisch.
+    # Pool-Reihenfolge: Importe (kuratiert) vor Auto (Feed) -> Feed-Englisch wird zuerst gekuerzt.
+    cust=[m for m in manual if m["src"]=="customer"]
+    pool=[m for m in manual if m["src"]!="customer"] + auto
+    cust_de=sum(1 for m in cust if m["lang"]=="de"); cust_en=len(cust)-cust_de
+    pool_de=[j for j in pool if j["lang"]=="de"]
+    pool_en=[j for j in pool if j["lang"]!="de"]
+    max_pool_en=max(0, (cust_de+len(pool_de)) - cust_en)
+    pool_en=pool_en[:max_pool_en]
+    alljobs=cust+pool_de+pool_en
 
     sections, by = build_sections(alljobs)
     total=len(alljobs); de=sum(1 for j in alljobs if j["lang"]=="de")
@@ -328,7 +389,11 @@ def main():
 
     open(OUT,"w",encoding="utf-8").write(head+sections+"\n\n"+tail)
     pct = round(100*de/total) if total else 0
-    print(f"\nGEBAUT: {total} Stellen (auto {len(auto)} + manuell {len(manual)}) | de={de} ({pct}%) en={total-de} weltweit={world} einsteiger={einst}")
+    n_c=sum(1 for j in alljobs if j.get("src")=="customer")
+    n_i=sum(1 for j in alljobs if j.get("src")=="import")
+    n_a=sum(1 for j in alljobs if j.get("src")=="auto")
+    print(f"\nGEBAUT: {total} Stellen | de={de} ({pct}%) en={total-de} weltweit={world} einsteiger={einst}")
+    print(f"   Kunden {n_c} + Import {n_i} + Auto {n_a} | tote Links entfernt: {dead}")
     for b,_,lbl in BEREICHE: print(f"   {lbl}: {len(by[b])}")
     print("->", OUT)
 
