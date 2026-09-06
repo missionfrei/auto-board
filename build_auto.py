@@ -46,7 +46,7 @@ BEREICH_KW = {
 BEREICH_ORDER = [b[0] for b in BEREICHE]
 
 DE_MARKERS = ["deutsch","german","(m/w/d)","m/w/d","mwd","stelle","mitarbeiter","kundenbetreu","buchhalt","vertrieb","home office","homeoffice"]
-WORLD_MARKERS = ["worldwide","anywhere","weltweit","global","work from anywhere"]
+WORLD_MARKERS = ["worldwide","anywhere","weltweit","global","work from anywhere","location independent","location-independent","anywhere in the world","remote worldwide","international remote","fully remote worldwide"]
 EU_MARKERS = ["europe","eu ","emea","cet","european"]
 EINSTEIGER_MARKERS = ["junior","entry","einsteiger","quereinstieg","quereinsteiger","no experience","keine erfahrung","berufseinsteiger","trainee","aushilfe","praktik"]
 BLOCK = ["werkstud","working student"]   # Paul: keine Werkstudenten
@@ -165,15 +165,35 @@ def from_wwr(xmltext):
 
 # (name, url, normalizer, kind) - kind "json"|"text"
 SOURCES = [
-    ("arbeitnow",   "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow, "json"),
-    ("remotive",    "https://remotive.com/api/remote-jobs",        from_remotive, "json"),
-    ("remotive-cs", "https://remotive.com/api/remote-jobs?category=customer-support", from_remotive, "json"),
-    ("jobicy",      "https://jobicy.com/api/v2/remote-jobs?count=100", from_jobicy, "json"),
-    ("remoteok",    "https://remoteok.com/api",                    from_remoteok, "json"),
-    ("himalayas",   "https://himalayas.app/jobs/api?limit=100",    from_himalayas, "json"),
-    ("workingnomads","https://www.workingnomads.com/api/exposed_jobs/", from_workingnomads, "json"),
-    ("wwr",         "https://weworkremotely.com/remote-jobs.rss",  from_wwr, "text"),
-    ("wwr-cs",      "https://weworkremotely.com/categories/remote-customer-support-jobs.rss", from_wwr, "text"),
+    # --- Deutschsprachig-orientiert (fuer die >=50%-Deutsch-Quote) ---
+    ("arbeitnow",     "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow, "json"),
+    ("remotive-de",   "https://remotive.com/api/remote-jobs?search=german",  from_remotive, "json"),
+    ("remotive-de2",  "https://remotive.com/api/remote-jobs?search=deutsch", from_remotive, "json"),
+    ("jobicy-de",     "https://jobicy.com/api/v2/remote-jobs?count=100&tag=german", from_jobicy, "json"),
+    ("remoteok-de",   "https://remoteok.com/api?tags=german",         from_remoteok, "json"),
+    # --- Weltweit (Volumen fuer die andere Haelfte) ---
+    ("remotive",      "https://remotive.com/api/remote-jobs",         from_remotive, "json"),
+    ("remotive-cs",   "https://remotive.com/api/remote-jobs?category=customer-support",   from_remotive, "json"),
+    ("remotive-sales","https://remotive.com/api/remote-jobs?category=sales",              from_remotive, "json"),
+    ("remotive-mkt",  "https://remotive.com/api/remote-jobs?category=marketing",          from_remotive, "json"),
+    ("remotive-biz",  "https://remotive.com/api/remote-jobs?category=business",           from_remotive, "json"),
+    ("remotive-data", "https://remotive.com/api/remote-jobs?category=data",               from_remotive, "json"),
+    ("remotive-write","https://remotive.com/api/remote-jobs?category=writing",            from_remotive, "json"),
+    ("remotive-fin",  "https://remotive.com/api/remote-jobs?category=finance-legal",      from_remotive, "json"),
+    ("remotive-hr",   "https://remotive.com/api/remote-jobs?category=hr",                 from_remotive, "json"),
+    ("remotive-pm",   "https://remotive.com/api/remote-jobs?category=project-management", from_remotive, "json"),
+    ("remotive-all",  "https://remotive.com/api/remote-jobs?category=all-others",         from_remotive, "json"),
+    ("jobicy",        "https://jobicy.com/api/v2/remote-jobs?count=100",             from_jobicy, "json"),
+    ("jobicy-any",    "https://jobicy.com/api/v2/remote-jobs?count=100&geo=anywhere", from_jobicy, "json"),
+    ("remoteok",      "https://remoteok.com/api",                     from_remoteok, "json"),
+    ("himalayas",     "https://himalayas.app/jobs/api?limit=100",     from_himalayas, "json"),
+    ("workingnomads", "https://www.workingnomads.com/api/exposed_jobs/", from_workingnomads, "json"),
+    ("wwr",           "https://weworkremotely.com/remote-jobs.rss",   from_wwr, "text"),
+    ("wwr-cs",        "https://weworkremotely.com/categories/remote-customer-support-jobs.rss",   from_wwr, "text"),
+    ("wwr-salesmkt",  "https://weworkremotely.com/categories/remote-sales-and-marketing-jobs.rss", from_wwr, "text"),
+    ("wwr-mgmtfin",   "https://weworkremotely.com/categories/remote-management-and-finance-jobs.rss", from_wwr, "text"),
+    ("wwr-product",   "https://weworkremotely.com/categories/remote-product-jobs.rss",  from_wwr, "text"),
+    ("wwr-allother",  "https://weworkremotely.com/categories/all-other-remote-jobs.rss", from_wwr, "text"),
 ]
 
 def gather():
@@ -209,12 +229,10 @@ def process(raw_jobs):
         # Deutschsprachig weltweit/EU-ortsunabhaengig ODER englisch weltweit im Service/Einsteiger-Bereich.
         if region=="de": continue                        # "nur in Deutschland" -> raus
         if lang=="de":
-            keep = region in ("world","eu")
+            keep = region in ("world","eu")               # deutschsprachig: weltweit ODER EU-ortsunabhaengig
         else:
-            keep = (region=="world" and ber in ("service","start","buero","sprache"))
+            keep = (region=="world" and ber in ("service","start","buero","sprache","marketing"))
         if not keep: continue
-        if ber=="it" and lang!="de": continue            # IT nur deutschsprachig
-        if ber=="vertrieb" and lang!="de": continue      # Sales nur deutschsprachig
         u=j["url"].rstrip("/")
         if u in seen: continue
         seen.add(u)
@@ -278,6 +296,15 @@ def main():
     manual=load_manual()
     man_urls={m["url"].rstrip("/") for m in manual}
     auto=[a for a in auto if a["url"].rstrip("/") not in man_urls]  # manuell gewinnt
+
+    # --- Paul-Vorgabe: mindestens die Haelfte deutschsprachig ---
+    # Englische Auto-Stellen werden so gedeckelt, dass insgesamt Deutsch >= Englisch bleibt.
+    m_de=sum(1 for m in manual if m["lang"]=="de"); m_en=len(manual)-m_de
+    a_de=[a for a in auto if a["lang"]=="de"]; a_en=[a for a in auto if a["lang"]!="de"]
+    max_en=max(0, (m_de+len(a_de)) - m_en)
+    a_en=sorted(a_en, key=lambda x:x["date"], reverse=True)[:max_en]
+    auto=a_de+a_en
+
     alljobs=manual+auto
 
     sections, by = build_sections(alljobs)
@@ -292,7 +319,8 @@ def main():
     setstat("Einsteiger-geeignet",einst); setstat("auf Deutsch",de)
 
     open(OUT,"w",encoding="utf-8").write(head+sections+"\n\n"+tail)
-    print(f"\nGEBAUT: {total} Stellen (auto {len(auto)} + manuell {len(manual)}) | de={de} weltweit={world} einsteiger={einst}")
+    pct = round(100*de/total) if total else 0
+    print(f"\nGEBAUT: {total} Stellen (auto {len(auto)} + manuell {len(manual)}) | de={de} ({pct}%) en={total-de} weltweit={world} einsteiger={einst}")
     for b,_,lbl in BEREICHE: print(f"   {lbl}: {len(by[b])}")
     print("->", OUT)
 

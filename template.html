@@ -98,6 +98,8 @@
   .lvlrow{margin-top:8px;align-items:center}
   .lvllabel{font-size:12px;color:var(--muted);font-weight:700;align-self:center;margin-right:2px;letter-spacing:.04em}
   .chip.lv.active{background:var(--gold);border-color:var(--gold);color:#fff}
+  .chip.langf{border-color:#0e7a52;color:#0e7a52}
+  .chip.langf.active{background:#0e7a52;border-color:#0e7a52;color:#fff}
 
   section{margin-bottom:38px}
   h2{font-size:18px;margin-bottom:14px;letter-spacing:.02em;color:var(--silver);font-weight:700}
@@ -191,6 +193,7 @@
   <input class="search" id="q" placeholder="Suche nach Titel, Firma oder Stichwort …">
   <div class="chips">
     <span class="chip active" data-f="all">Alle</span>
+    <span class="chip langf" id="langToggle" title="Nur deutschsprachige Stellen anzeigen">🇩🇪 Nur Deutsch</span>
     <span class="chip" data-f="ber:service">🟢 Service</span>
     <span class="chip" data-f="ber:buero">🟡 Büro &amp; Orga</span>
     <span class="chip" data-f="ber:start">🟠 Schnell-Start</span>
@@ -4498,6 +4501,7 @@
 
   var q=document.getElementById('q');
   var active='all';
+  var langOnly=false;
   function apply(){
     var tb=document.getElementById('toolbox');
     var fl=document.getElementById('freelance');
@@ -4523,7 +4527,8 @@
       if(c.closest('#favoriten'))return;
       var okB=(active==='all')||(active.indexOf('ber:')===0 && c.dataset.bereich===active.slice(4));
       var okS=!s||c.textContent.toLowerCase().indexOf(s)>-1;
-      c.classList.toggle('hidden',!(okB&&okS));
+      var okL=!langOnly||c.dataset.lang==='de';
+      c.classList.toggle('hidden',!(okB&&okS&&okL));
     });
     document.querySelectorAll('section').forEach(function(sec){
       if(sec.id==='toolbox'||sec.id==='favoriten')return;
@@ -4532,10 +4537,14 @@
     });
   }
   q.addEventListener('input',apply);
-  document.querySelectorAll('.chip:not(.lv)').forEach(function(ch){ch.addEventListener('click',function(){
-    document.querySelectorAll('.chip:not(.lv)').forEach(function(x){x.classList.remove('active');});
+  document.querySelectorAll('.chip:not(.lv):not(.langf)').forEach(function(ch){ch.addEventListener('click',function(){
+    document.querySelectorAll('.chip:not(.lv):not(.langf)').forEach(function(x){x.classList.remove('active');});
     ch.classList.add('active');active=ch.dataset.f;apply();
   });});
+  var langBtn=document.getElementById('langToggle');
+  if(langBtn){langBtn.addEventListener('click',function(){
+    langOnly=!langOnly; langBtn.classList.toggle('active',langOnly); apply();
+  });}
 
   initStars();
   try{var saved=localStorage.getItem('mf_pw'); if(saved && PWS.indexOf(saved)>-1){CUR=saved;unlock();}}catch(e){}
