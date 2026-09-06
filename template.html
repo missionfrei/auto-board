@@ -143,6 +143,13 @@
   .star:hover{transform:scale(1.15);color:var(--gold);background:var(--gold-soft)}
   .star.on{color:var(--gold)}
   .favempty{color:var(--muted);font-size:14px;padding:10px 2px 4px;line-height:1.55}
+  /* Fix: lange Feed-Texte umbrechen, kein horizontales Abschneiden am Laptop */
+  .grid{min-width:0}
+  .card{min-width:0}
+  .card h3,.card .company,.card .info{overflow-wrap:anywhere;word-break:break-word}
+  .card .meta{flex-wrap:wrap}
+  .go a{overflow-wrap:anywhere}
+  html,body{max-width:100%;overflow-x:hidden}
 </style>
 </head>
 <body>

@@ -136,8 +136,12 @@ def process(raw_jobs):
         ber=detect_bereich(j["title"]+" "+j.get("raw_tags",""))
         if not ber: continue
         lang,region,level=detect(j)
-        # Fokus des Boards: deutschsprachig ODER weltweit-remote
-        if lang!="de" and region not in ("world","eu"): continue
+        # Fokus: deutschsprachig ODER weltweit/EU-Service/Einsteiger.
+        # Englische IT/Sales/Marketing/Vertrieb raus (das ist nicht Pauls Publikum).
+        keep = (lang=="de") or (region in ("world","eu") and ber in ("service","start","sprache","buero"))
+        if not keep: continue
+        if ber=="it" and lang!="de": continue          # IT nur deutschsprachig
+        if ber=="vertrieb" and lang!="de": continue     # Sales nur deutschsprachig
         u=j["url"].rstrip("/")
         if u in seen: continue
         seen.add(u)
@@ -173,11 +177,15 @@ def card(j):
             f'<span class="tag date">📅 {j["date"]}</span></div>\n'
             f'  <div class="go"><a href="{j["url"]}" target="_blank" rel="noopener">Zur Stelle →</a></div>\n</div>')
 
+# Deckel pro Bereich - kippt den Mix Richtung Service/Buero statt IT-Flut
+CAP={"service":70,"buero":50,"start":30,"sprache":30,"marketing":25,"vertrieb":25,"it":15}
 def build_sections(jobs):
     by={b:[] for b in BEREICH_ORDER}
     for j in jobs: by[j["bereich"]].append(j)
-    for b in by:  # manuelle (fd) zuerst, dann nach Datum
+    for b in by:  # manuelle (fd) immer behalten + zuerst, Rest gedeckelt
         by[b].sort(key=lambda x:(not x["fd"], x["date"]), reverse=False)
+        fd=[j for j in by[b] if j["fd"]]; rest=[j for j in by[b] if not j["fd"]]
+        by[b]=fd+rest[:max(0, CAP.get(b,40)-len(fd))]
     html=[]
     for ber,color,label in BEREICHE:
         cards=by[ber]
