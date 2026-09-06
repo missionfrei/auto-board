@@ -102,10 +102,35 @@ def from_remotive(raw):
             raw_loc=j.get("candidate_required_location","")))
     return out
 
+def _j(x):  # list-oder-string -> string
+    if isinstance(x,list): return " ".join(str(i) for i in x)
+    return str(x or "")
+
+def from_jobicy(raw):
+    out=[]
+    for j in raw.get("jobs", []):
+        out.append(dict(title=j.get("jobTitle",""), company=j.get("companyName",""),
+            url=j.get("url",""), info=clean_text(j.get("jobExcerpt","")),
+            raw_tags=_j(j.get("jobIndustry"))+" "+_j(j.get("jobType")),
+            raw_loc=_j(j.get("jobGeo"))))
+    return out
+
+def from_remoteok(raw):
+    out=[]
+    for j in (raw if isinstance(raw,list) else []):
+        if not isinstance(j,dict) or not j.get("position"): continue
+        out.append(dict(title=j.get("position",""), company=j.get("company",""),
+            url=j.get("url",""), info=clean_text(j.get("description","")),
+            raw_tags=_j(j.get("tags")), raw_loc=(j.get("location") or "remote")))
+    return out
+
 SOURCES = [
-    ("arbeitnow", "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow),
-    ("remotive",  "https://remotive.com/api/remote-jobs",        from_remotive),
-    # M2: jobicy, remoteok, weworkremotely (RSS), himalayas, working nomads ...
+    ("arbeitnow",   "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow),
+    ("remotive",    "https://remotive.com/api/remote-jobs",        from_remotive),
+    ("remotive-cs", "https://remotive.com/api/remote-jobs?category=customer-support", from_remotive),
+    ("jobicy",      "https://jobicy.com/api/v2/remote-jobs?count=100", from_jobicy),
+    ("remoteok",    "https://remoteok.com/api",                    from_remoteok),
+    # weiter moeglich: weworkremotely (RSS), himalayas, working nomads
 ]
 
 def gather():
