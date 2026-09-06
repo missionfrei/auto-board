@@ -255,6 +255,8 @@ SOURCES = [
     ("realworkfromanywhere","https://www.realworkfromanywhere.com/feed", from_rss_generic, "text"),
     ("euremotejobs",  "https://euremotejobs.com/feed/",                  from_rss_generic, "text"),
     ("nodesk",        "https://nodesk.co/remote-jobs/feed/",             from_rss_generic, "text"),
+    ("jobspresso",    "https://jobspresso.co/remote-work/feed/",         from_rss_generic, "text"),
+    ("remote3",       "https://remote3.co/feed",                         from_rss_generic, "text"),
 ]
 
 def gather():
