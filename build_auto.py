@@ -73,8 +73,7 @@ def detect(job):
     lang = "de" if any(m in t for m in DE_MARKERS) else "en"
     if any(m in t for m in WORLD_MARKERS): region = "world"
     elif any(m in t for m in EU_MARKERS):  region = "eu"
-    elif "germany" in t or "deutschland" in t or lang == "de": region = "de"
-    else: region = "world"
+    else: region = "de"   # ohne expliziten Weltweit-/EU-Marker: als Deutschland-nur behandeln (-> wird gefiltert)
     level = "einsteiger" if any(m in t for m in EINSTEIGER_MARKERS) else "erfahren"
     return lang, region, level
 
@@ -124,13 +123,57 @@ def from_remoteok(raw):
             raw_tags=_j(j.get("tags")), raw_loc=(j.get("location") or "remote")))
     return out
 
+def http_text(url):
+    req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0 (MissionfreiBot)"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read().decode("utf-8","replace")
+
+def from_himalayas(raw):
+    out=[]
+    for j in raw.get("jobs", []):
+        loc=_j(j.get("locationRestrictions"))
+        out.append(dict(title=j.get("title",""), company=j.get("companyName",""),
+            url=j.get("guid") or j.get("applicationLink") or "",
+            info=clean_text(j.get("excerpt") or j.get("description","")),
+            raw_tags=_j(j.get("categories")),
+            raw_loc=loc if loc else "worldwide"))
+    return out
+
+def from_workingnomads(raw):
+    out=[]
+    for j in (raw if isinstance(raw,list) else []):
+        if not isinstance(j,dict): continue
+        out.append(dict(title=j.get("title",""), company=j.get("company_name",""),
+            url=j.get("url",""), info=clean_text(j.get("description","")),
+            raw_tags=(j.get("category_name","")+" "+_j(j.get("tags"))),
+            raw_loc=j.get("location","")))
+    return out
+
+def from_wwr(xmltext):
+    import xml.etree.ElementTree as ET
+    out=[]
+    try: root=ET.fromstring(xmltext)
+    except Exception: return out
+    for item in root.iter("item"):
+        title=(item.findtext("title") or "").strip()
+        region=(item.findtext("region") or "")
+        comp,pos = (title.split(":",1)+[""])[:2] if ":" in title else ("",title)
+        out.append(dict(title=(pos.strip() or title), company=comp.strip(),
+            url=(item.findtext("link") or ""), info=clean_text(item.findtext("description") or ""),
+            raw_tags=(item.findtext("category") or ""), raw_loc=region))
+    return out
+
+# (name, url, normalizer, kind) - kind "json"|"text"
 SOURCES = [
-    ("arbeitnow",   "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow),
-    ("remotive",    "https://remotive.com/api/remote-jobs",        from_remotive),
-    ("remotive-cs", "https://remotive.com/api/remote-jobs?category=customer-support", from_remotive),
-    ("jobicy",      "https://jobicy.com/api/v2/remote-jobs?count=100", from_jobicy),
-    ("remoteok",    "https://remoteok.com/api",                    from_remoteok),
-    # weiter moeglich: weworkremotely (RSS), himalayas, working nomads
+    ("arbeitnow",   "https://www.arbeitnow.com/api/job-board-api", from_arbeitnow, "json"),
+    ("remotive",    "https://remotive.com/api/remote-jobs",        from_remotive, "json"),
+    ("remotive-cs", "https://remotive.com/api/remote-jobs?category=customer-support", from_remotive, "json"),
+    ("jobicy",      "https://jobicy.com/api/v2/remote-jobs?count=100", from_jobicy, "json"),
+    ("remoteok",    "https://remoteok.com/api",                    from_remoteok, "json"),
+    ("himalayas",   "https://himalayas.app/jobs/api?limit=100",    from_himalayas, "json"),
+    ("workingnomads","https://www.workingnomads.com/api/exposed_jobs/", from_workingnomads, "json"),
+    ("wwr",         "https://weworkremotely.com/remote-jobs.rss",  from_wwr, "text"),
+    ("wwr-cs",      "https://weworkremotely.com/categories/remote-customer-support-jobs.rss", from_wwr, "text"),
 ]
 
 def gather():
@@ -143,9 +186,10 @@ def gather():
                 fn={"arbeitnow":from_arbeitnow,"remotive":from_remotive}[name]
                 jobs+=fn(raw); print(f"[mock] {name}: {len(fn(raw))}")
         return jobs
-    for name,url,fn in SOURCES:
+    for name,url,fn,kind in SOURCES:
         try:
-            raw=http_json(url); got=fn(raw); jobs+=got
+            raw = http_text(url) if kind=="text" else http_json(url)
+            got=fn(raw); jobs+=got
             print(f"[feed] {name}: {len(got)}")
         except Exception as e:
             print(f"[feed] {name} FEHLER (uebersprungen): {e}")
@@ -161,12 +205,16 @@ def process(raw_jobs):
         ber=detect_bereich(j["title"]+" "+j.get("raw_tags",""))
         if not ber: continue
         lang,region,level=detect(j)
-        # Fokus: deutschsprachig ODER weltweit/EU-Service/Einsteiger.
-        # Englische IT/Sales/Marketing/Vertrieb raus (das ist nicht Pauls Publikum).
-        keep = (lang=="de") or (region in ("world","eu") and ber in ("service","start","sprache","buero"))
+        # WELTWEIT-FIRST (Paul-Vorgabe): KEINE reinen Deutschland-Stellen aufs Board.
+        # Deutschsprachig weltweit/EU-ortsunabhaengig ODER englisch weltweit im Service/Einsteiger-Bereich.
+        if region=="de": continue                        # "nur in Deutschland" -> raus
+        if lang=="de":
+            keep = region in ("world","eu")
+        else:
+            keep = (region=="world" and ber in ("service","start","buero","sprache"))
         if not keep: continue
-        if ber=="it" and lang!="de": continue          # IT nur deutschsprachig
-        if ber=="vertrieb" and lang!="de": continue     # Sales nur deutschsprachig
+        if ber=="it" and lang!="de": continue            # IT nur deutschsprachig
+        if ber=="vertrieb" and lang!="de": continue      # Sales nur deutschsprachig
         u=j["url"].rstrip("/")
         if u in seen: continue
         seen.add(u)
@@ -203,7 +251,7 @@ def card(j):
             f'  <div class="go"><a href="{j["url"]}" target="_blank" rel="noopener">Zur Stelle →</a></div>\n</div>')
 
 # Deckel pro Bereich - kippt den Mix Richtung Service/Buero statt IT-Flut
-CAP={"service":70,"buero":50,"start":30,"sprache":30,"marketing":25,"vertrieb":25,"it":15}
+CAP={"service":300,"buero":150,"start":120,"sprache":100,"marketing":40,"vertrieb":40,"it":20}
 def build_sections(jobs):
     by={b:[] for b in BEREICH_ORDER}
     for j in jobs: by[j["bereich"]].append(j)
