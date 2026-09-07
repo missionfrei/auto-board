@@ -37,7 +37,7 @@ BEREICHE = [
 BEREICH_KW = {
     "service":  ["kundenservice","kundenbetreu","customer support","customer service","customer care","customer success","support agent","service agent","reservation","booking","reise","travel","hospitality","concierge","call center","callcenter","kundenberat","beschwerde"],
     "buero":    ["buchhalt","accounting","accountant","finance","finanzbuch","lohn","payroll","steuerfach","controlling","sachbearbeit","backoffice","back office","back-office","assistenz","assistant","verwaltung","admin","office manager","datenerfassung","data entry","dateneingabe"],
-    "start":    ["tester","testing","usability","umfrage","survey","data annotation","annotator","rater","transcrib","transcription","microtask","mikrojob","nebenjob","clickworker","crowdwork"],
+    "start":    [],   # frueher Mikrojobs - jetzt raus (Paul). Sektion zeigt nur noch manuelle Freelance-/Portal-Eintraege.
     "sprache":  ["übersetz","ubersetz","translat","lektor","proofread","texter","content writer","copywriter","redaktion","tutor","nachhilfe","language teacher","sprachlehrer"],
     "marketing":["marketing","social media","seo","content creator","content manager","grafik","design","designer","creative","video","brand","paid ads","performance market","kampagne","community manager"],
     "vertrieb": ["sales","vertrieb","sdr","sales development","setter","closer","business development","account executive","akquise","inside sales"],
@@ -50,7 +50,14 @@ WORLD_MARKERS = ["worldwide","anywhere","weltweit","global","work from anywhere"
     "ortsunabhängig","ortsunabhaengig","von überall","von ueberall","standortunabhängig","standortunabhaengig","überall arbeiten","ueberall arbeiten","remote weltweit","weltweit remote","von zuhause aus überall"]
 EU_MARKERS = ["europe","eu ","emea","cet","european","europaweit","eu-weit","euweit","innerhalb europas","remote in europa","eu remote","europe remote","remote europe","remote (europe)","eu-remote"]
 EINSTEIGER_MARKERS = ["junior","entry","einsteiger","quereinstieg","quereinsteiger","no experience","keine erfahrung","berufseinsteiger","trainee","aushilfe","praktik"]
-BLOCK = ["werkstud","working student"]   # Paul: keine Werkstudenten
+BLOCK = ["werkstud","working student",   # Paul: keine Werkstudenten
+    # Paul: KEINE kleinen Nebenverdienst-/Mikrojobs (Umfragen, Klick-Tasks, Tests, KI-Datenlabeling, Transkription-Gigs)
+    "umfrage","survey","paid survey","mikrojob","mikro-job","microtask","micro-task","clickwork","crowdwork","crowdsurf",
+    "usability test","usability-test","website test","websites testen","produkttest","playtester","beta-test",
+    "data annotation","datenannotation","annotator","data labeling","data labelling","daten labeln","rater","search evaluator","ads rating",
+    "transcription","transkription","transkribent","untertitel erstellen",
+    "ki-training","ki-daten","ki-sprachdaten","ki-trainer","ki-reviewer","ki-community","ai trainer","ai reviewer","audio evaluation","data evaluation",
+    "get-paid","get paid to","paid to click","faucet","cashback","nebenverdienst","praemien sammeln","belohnungen verdienen"]
 
 def esc(s):
     return (s or "").replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").strip()

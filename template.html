@@ -4548,7 +4548,21 @@
 
   initStars();
   try{var saved=localStorage.getItem('mf_pw'); if(saved && PWS.indexOf(saved)>-1){CUR=saved;unlock();}}catch(e){}
+
+  // --- Klick-Tracking: welche Stellen werden angeklickt? (feuert GoatCounter-Events) ---
+  document.addEventListener('click',function(e){
+    var a=e.target.closest?e.target.closest('.go a[href]'):null; if(!a) return;
+    var card=a.closest('.card'); if(!card) return;
+    var comp=((card.querySelector('.company')||{}).textContent||'').trim().slice(0,50);
+    var ber=card.dataset.bereich||'x';
+    var h3=((card.querySelector('h3')||{}).textContent||'').trim().slice(0,80);
+    try{ if(window.goatcounter&&window.goatcounter.count){ window.goatcounter.count({path:'klick/'+ber+'/'+comp,title:h3,event:true}); } }catch(_){ }
+  });
 })();
 </script>
+<!-- Klick-Tracking (GoatCounter: datensparsam, kein Cookie, kein Consent-Banner noetig).
+     Aktivieren: kostenlos auf goatcounter.com registrieren, dann unten 'missionfrei' durch deinen Code ersetzen. -->
+<script>window.goatcounter={no_onload:true};</script>
+<script data-goatcounter="https://missionfrei.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
